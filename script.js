@@ -1,4 +1,3 @@
-
 var mode="D";
 var clearflag=0;
 var equationDec =[];
