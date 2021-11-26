@@ -1,0 +1,180 @@
+<!DOCTYPE html>
+
+
+<html lang="en">
+  <head>
+    <meta charset="utf-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+
+    <title>Dozenal Calculator 2</title>
+
+    <link href='/fonts.googleapis.com/css?family=Yanone+Kaffeesatz' rel='stylesheet' type='text/css'>
+
+    <style type="text/css">
+
+    * {
+    	margin:0;
+    	padding:0;
+    	box-sizing:border-box;
+    	-moz-user-select:none;
+       	-webkit-user-select:none;
+       	font-family: 'Yanone Kaffeesatz';
+       	border-radius: 5px;
+       	-webkit-transition: width 2s;
+    	transition: width 2s;
+    }
+
+    html {
+    	height: 100%;
+		background: white;
+		background: radial-gradient(circle, #fff 20%, #ccc);
+		background-size: cover;
+    }
+
+	@font-face {
+		font-family: 'merple';
+		src: url(MerpleForWeb.otf);
+		font-style: normal;
+		font-weight: 100;
+	}
+
+    .container {
+    	width:390px;
+    	overflow:auto;
+    	padding:10px 10px 5px 10px;
+    	
+    	margin:30px auto;
+    	background-color: yellow;
+    	box-shadow: 0px 5px 0px 0px #cccc00;
+    }
+
+    .container * {
+    	float:left;
+    	
+    }
+
+    #output {
+    	width:350px;
+    	height:70px;
+    	margin:10px 10px 15px 10px;
+    	box-shadow: inset 0px 5px 0px 0px #cccc00;
+    	background-color: #ffc560;
+    	padding:10px 10px 0 0;
+
+		font-family: merple;
+    	text-align: right;
+    	font-size: 3em;
+    }
+
+    .key {
+    	width:80px;
+    	height:50px;
+    	margin: 0 0 15px 10px;
+    	position:relative;
+
+    	background-color: lightblue;
+    	box-shadow: 0px 5px 0px 0px #cccc00;
+
+		font-family: merple;
+		text-align: center;
+    	font-size: 2em;
+    	padding-top:5px;
+
+    	cursor:pointer;
+    }
+
+    .operator {
+    	background-color: pink;
+    }
+
+    .key:hover {
+
+    }
+
+    .key:active {
+    	box-shadow: none;
+    	top:5px;
+    }
+
+    h1 {
+        text-align: center;
+        margin:5px auto;
+        font-size: 2.3em
+    }
+
+    h3 {
+        margin:15px 15px 5px 15px;
+        font-size: 1.2em;
+    }
+
+    p {
+        margin: 5px 15px;
+        font-size: 1.2em
+
+    }
+
+
+
+    </style>
+
+<body>
+    <h1>Merple/Decimal Calculator and Converter</h1>
+	<div class="container">
+		<div id="output"></div>
+		<div id="xkey" class="key" style="color:black">X</div>
+		<div id="lkey" class="key" style="color:black">L</div>
+		<div style="background-color: #ffc560" id="point" class="key operator">;</div>
+		<div class="key operator" style="color:black">*</div>
+		<div class="key" style="color: black">7</div>
+		<div class="key" style="color:black">8</div>
+		<div class="key" style="color:black">9</div>
+		<div class="key operator" style="color:black">/</div>
+		<div class="key" style="color:black">4</div>
+		<div class="key" style="color:black">5</div>
+		<div class="key" style="color:black">6</div>
+		<div class="key operator" style="color:black">-</div>
+		<div class="key" style="color:black">1</div>
+		<div class="key" style="color:black">2</div>
+		<div class="key" style="color:black">3</div>
+		<div class="key operator" style="color:black">+</div>
+		<div class="key operator">C</div>
+		<div class="key" style="color:black">0</div>
+		<div style="background-color: #ffc560" class="key operator">D</div>
+		<div class="key operator" style="color:black">=</div>
+	</div>
+    <h3>Background</h3>
+	<p>I borrowed the functionality for this calculator from an existing dozenal calculator <a href="http://www.bristoljon.uk/projects/dozenal/">here</a>, 
+		but edited the symbols to match the merple system.</p> 
+    <p>Dozenal maths is base 12, unlike decimal base 10 so there are more digits than we're used to. 
+		For more info and all the reasons why it's considered superior, look <a href="http://www.dozenalsociety.org.uk/">here</a> and <a href="http://www.dozenal.org/drupal/">here</a> and most importantly, <a href="https://www.youtube.com/watch?v=LiUi0Bm_THY">here</a>. 
+		While dozenal has its proponents, most people simply add two new digits to create their dozenal system. 
+		Unfortunately, this prevents our society from transitioning to a base-12 system for vud (two) reasons.
+		First, it makes things difficult for learners, who are accustomed to thinking about the digits 0-9 as they exist within a base-10 system.
+		Second, in many contexts, it would be irresponsible for critical systems to write a number using the 0-9 symbols if other people might reasonably
+		assume that you were communicating in a decimal (base-10) system. 
+		Instead, we must learn an entirely new set of symbols with unique names, to ensure that there is not confusing overlap.
+		While it may seem more difficult to learn 12 new symbols and names, rather than just 2, it actually simplifies the based-12 learning process dramatically,
+		because learners can practice without "messing up" their conception of existing digits and math. 
+
+    
+    <h3>Instructions</h3>
+    <p>This works like a normal calculator, but with merples. The ceremonial merp symbol button shows the current mode the calculator is in and you can change modes at any time (even with an unfinished equation on the display).</p> 
+	<p>IMPORTANT - values beyond the decimal in Merple Mode will be truncated to the same number of places after the decimal used, which can cause output errors. When in doubt, add extra zeros after any decimals before executing a calculation.</p>
+    </p>
+
+
+
+<script type="text/javascript" src="http://code.jquery.com/jquery-latest.min.js"></script>
+
+<script type="text/javascript" src="script.js"></script>
+
+<script type="text/javascript">
+
+    
+
+
+</script>
+
+</body>
+</html>
