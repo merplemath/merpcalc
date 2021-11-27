@@ -315,7 +315,7 @@ for (var i = 0; i<keys.length; i++) {
             $("#output").html(replaceAB(output));
 
             mode ="D";
-            $("#output").css("background-color","#ffc560");
+            $("#output").css("background-color","turquoise");
             $("#output").css("font-family","merple");
             $(".key").css("font-family","merple");
             $(this).html(mode);
