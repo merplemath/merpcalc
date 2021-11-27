@@ -319,9 +319,9 @@ for (var i = 0; i<keys.length; i++) {
             $("#output").css("font-family","merple");
             $(".key").css("font-family","merple");
             $(this).html(mode);
-            $(this).css("background-color","#ffc560");
+            $(this).css("background-color","turquoise");
             $("#point").html(";");
-            $("#point").css("background-color","#ffc560");
+            $("#point").css("background-color","turquoise");
            
             clearflag =1;
         }
